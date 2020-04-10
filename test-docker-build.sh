@@ -20,4 +20,4 @@ docker ps
 
 
 # Bash into container and debug it
-# docker exec -it <container_id> bash
+# docker exec -it <container_id> /bin/bash
