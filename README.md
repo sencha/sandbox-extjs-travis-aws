@@ -130,6 +130,7 @@ Note: I won't be covering how to build using a saved image in this round. I'll u
 Run `sh ./test-docker-build.sh` to test out the docker build. Then go to http://localhost:8282 to test the configuration. 
 
 | docker cmd | purpose |
+| --- | --- |
 | docker ps | List the docker containers running |
 | docker stop [container-id] | Stop a container |
 | docker exec -it [container-id] /bin/bash | Bash into the container |
