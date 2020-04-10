@@ -18,12 +18,12 @@ This Elastic Beanstalk configuration includes:
 - Multi-Docker container config - http://localhost:3000
 
 This Client application includes:
-- Visual Studio Code launchers for client and server
+- Visual Studio Code launchers for client, server & Chrome
 - Client launcher - webpack dev server - http://localhost:1962 - with a proxy to server
 - Server launcher - express server - http://localhost:3000
 - Client debugging proxy - http://localhost:1962/api to http://localhost:3000/api
 
-## Set up VCS
+## VCS Configuration
 Configure a VCS to store your code. 
 
 Once the project is configured it will be your project root. 
