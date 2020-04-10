@@ -1,0 +1,41 @@
+env:
+  # npm.sencha.com
+  # gem install travis
+  # travis login --pro --github-token replace_with_github_personal_token
+  # cd to/repo
+  # travis encrypt SENCHA_NPM_TOKEN_VERDACCIO="replace_with_apikey"
+  # SENCHA_NPM_TOKEN_VERDACCIO - secure: "HhsoX2/E4n4wTE21s9ogkVwWoHATgRZFLyhMJmPsLj59ojOgYdSPS6DTCqG669eSGM5FosqYZeT386R20/wbmn8HJI+sslwUgzk1XC4hn5dQB4C4YzZIdIIm6RcAJkCqfWhaaS4DWYVJqEUWc8tT2KVEWzHQW1fZCS3nGVQ/3GB59p41UJ0O9WRmNi9uS3A4HsiaR/Bk6yF+UgTojfcZooABOIIfBMqFQI5O21ln+dGWvg2zKD6tDx1TJzkuquH0xj59ALbmdDBCI/ahSOfP3HdBjGr4LbLaJWF3MhcLV+MhkwbL1G9bT4yg2zJ4ZqJQzLDPcLRBwOr8uQ11B6JMdA41zJZQIyLgNsJZyAZtslDKiCl5Wb8MbqVSkE8nFPnlityljutRv0u5Vf0suMEMLSI96LtWaHZ7qL+z6SQ99aJ9WrGAJtVhJgjpUsdJhu8pxH9WSMWevOKrgTgdA+usiJblw6KgzwK8CD9Bc2aG+E+DP42dm49wy3nIBzGAsgCE6g/Lp3KkabHy3qMFX7jq7lIrXPAJAtVdLN1NpyyVg1PzkacwcJ+oaj+ukcallKfZDRxRH8OPveXvxK2qneea11FKrQUeP7Iz7yS3Qx8lPYG0Yy9vX6iywkv/r8NLatiRtiQHwyjyQzuaI7qv+nP/UCOKM6muLeO7k+jX6DDG890="
+  # early-adopter
+  # travis encrypt SENCHA_NPM_TOKEN_EARLYADOPTER="replace_with_apikey"
+  - secure: "cQIj922fWg+GsVdWNziigYvJ4jt3gZyQMIVaBsC57n76FGe8jeGs/sXf6Dg3VNqSdZgsATutFHY2HmY3HE9WBjEmgEHllzkbGCFyqNPddaqKIqt6r3FO4wJQeK1IwRiOxlR4qbgCQ8zvpB5LGRAfRzW7tuvBpMlLHMXATcyHd5O0ULEensHtJTExttin8TFnowBIBwXlWNHbGhWXYmpPorQoj+TYsffdGV1WivIdMz4Qfjexw/NMeMA+JkyMGXVlbbDMHcfPMkzGXGlcwW4LZ6cHiCGdyC53dwgia+fYaQj3cvUAmY8IIqzKbpDlgTEZq2+hVBC8admf0Hsx6UVRSPmHF6Ag4ch5b969c89RqK5MW/iYYfJug1j8UNh9hJugZWKCyIebV/S1NKBYpVb3kfagMmErkwsv/3kH6ItZg+DqGc/pF2YP4WIaCxTpTzi6qt3w23XYNVXlZgFwAi8rAVTyJF1L0MuQJaZLl34wMRvjN6aLh4UlvwLLzjjXQJr/mIA/7hc3lQyreg8D8Vkl6LuCNnxxVO4sAOA2YqUgqGk5VdFNtIUDNW64TVSSukEb/QSR3XOEOaBZBs7BcQr1c2XHTfXJ9FkwUccID4B1fQDdTVOSywXA4x5xKf4UT3ETaPAOR8UIP3L1gjxArdtYMXEMnrpARXIY3RQK0iH8WUU="
+
+# os: osx
+language: node_js
+node_js:
+ - "lts/*"
+
+cache:
+  npm: false
+
+before_install:
+  # Prep ssh key
+  #- openssl aes-256-cbc -K $encrypted_eaf51f175626_key -iv $encrypted_eaf51f175626_iv -in cdnkey.enc -out cdnkey -d
+  #- chmod 400 cdnkey
+  # NPM Login - commercial
+  # - npm config set @sencha:registry https://npm.sencha.com/
+  # - npm config set //npm.sencha.com/:_authToken=$SENCHA_NPM_TOKEN_VERDACCIO
+  # NPM Login - early-adopter
+  - npm config set @sencha:registry https://sencha.myget.org/F/early-adopter/npm/
+  - npm config set //sencha.myget.org/F/early-adopter/npm/:_authToken=$SENCHA_NPM_TOKEN_EARLYADOPTER
+
+install: 
+  - npm install
+
+script:
+  - pwd
+
+
+# Run CLI in this repo
+# Delete Cache
+# travis cache
+# travis cache --delete

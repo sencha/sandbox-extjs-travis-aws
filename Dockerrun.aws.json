@@ -1,0 +1,16 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    
+  ],
+  "containerDefinitions": [
+    {
+      "name": "ubuntu-app",
+      "image": "ubuntu:18.04",
+      "essential": true,
+      "memory": 1024,
+      "mountPoints": [
+      ]
+    }
+  ]
+}

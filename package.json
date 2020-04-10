@@ -1,0 +1,16 @@
+{
+  "name": "web-application",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server/express.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3",
+    "webpack": "~4.39.2",
+    "webpack-cli": "~3.3.6"
+  }
+}
