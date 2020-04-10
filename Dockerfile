@@ -11,6 +11,7 @@ RUN apt-get install -y nodejs
 
 WORKDIR /app/current
 
+# TODO consider mounting directories so the files are linked closer to source
 COPY . /app/current
 COPY ./client/build/production/ModernApp/ /app/current/server/html/
 
