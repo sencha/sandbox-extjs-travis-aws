@@ -1,6 +1,8 @@
 # Deploying your Ext JS Application to Elastic Beanstalk
 This example covers deploying your Ext JS application to Elastic Beanstalk.
 
+[![Build Status](https://travis-ci.com/sencha/sandbox-extjs-travis-aws.svg?token=KdcJCzakCyZqGAcQgvVY&branch=master)](https://travis-ci.com/sencha/sandbox-extjs-travis-aws)
+
 This configuration includes:
 - npm & node.js
 - webpack 
