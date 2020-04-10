@@ -126,3 +126,12 @@ Add express and change how the server is started.
 
 
 
+## Debugging
+Debug in VSCode. 
+
+1. Start the `Server` launcher. http://localhost:3000/api
+2. Start the `Client` launcher. http://localhost:1962/
+
+- The Client launcher launches web pack dev server which watches for changes. On a change it builds. 
+- The Client launcher has a proxy from http://localhost:1962/api to http://localhost:3000/api.
+ 
