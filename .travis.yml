@@ -13,16 +13,22 @@ before_install:
   - npm config set @sencha:registry https://sencha.myget.org/F/early-adopter/npm/
   - npm config set //sencha.myget.org/F/early-adopter/npm/:_authToken=$SENCHA_NPM_TOKEN_EARLYADOPTER
   # For early adopter clean the cache 
+  # Remove all package-lock.json files for early adopter. 
   #- npm cache clean --force
   #- npm cache verify
 
 install: 
   - npm install
-  - cd client
+  - ls
+  - pwd
+  - cd ./client
+  - pwd
   - npm install
 
 script:
-  - cd client
+  - pwd
+  - cd ./client
+  - pwd
   - npm run build
   # Next steps are handeled in the Dockerfile
   # DockerFile is doing the copying to html directory
