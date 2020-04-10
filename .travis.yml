@@ -3,7 +3,7 @@ node_js:
  - "lts/*"
 
 cache:
-  npm: false
+  npm: true
 
 before_install:
   # NPM Login - commercial
