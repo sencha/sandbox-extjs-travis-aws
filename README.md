@@ -132,8 +132,8 @@ Run `sh ./test-docker-build.sh` to test out the docker build. Then go to http://
 | docker cmd | purpose |
 | --- | --- |
 | docker ps | List the docker containers running |
-| docker stop [container-id] | Stop a container |
-| docker exec -it [container-id] /bin/bash | Bash into the container |
+| docker stop `<container-id>` | Stop a container |
+| docker exec -it `<container-id>` /bin/bash | Bash into the container |
 | docker build -t my-app:1.2 . | Build the docker container with version |
 | docker run -d -p 8282:3000 my-app:1.2 | Run the docker built container with version on http://localhost:8282 and proxy to port 3000 |
 
