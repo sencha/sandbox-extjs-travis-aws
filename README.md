@@ -131,7 +131,7 @@ Run `sh ./test-docker-build.sh` to test out the docker build. Then go to http://
 
 | docker cmd | purpose |
 | --- | --- |
-| docker ps | List the docker containers running |
+| docker ps | List the docker containers running. |
 | docker stop `<container-id>` | Stop a container |
 | docker exec -it `<container-id>` /bin/bash | Bash into the container |
 | docker build -t my-app:1.2 . | Build the docker container with version |

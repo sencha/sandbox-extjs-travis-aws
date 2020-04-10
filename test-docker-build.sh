@@ -3,20 +3,21 @@
 # Build and run docker locally
 # After Dockerfile modification, change the version!
 
-# Build docker
+# Build docker with version
 docker build -t my-app:1.2 .
 
-# Run docker # 8282 for testing
+# Run docker # 8282 for testing with version
 docker run -d -p 8282:3000 my-app:1.2
 
-# List dockers
+# List docker container ds
 docker ps
 
 
-# `docker ps` - to list containers
-# `stop docker [container_id]`
-# `docker stop [container_id]`
+# Useful docker commands:
+# `docker ps` - to list container ids
+# `stop docker <container_id>`
+# `docker stop <container_id>`
 
 
-# debugging in container
-# docker exec -it [container_id] bash
+# Bash into container and debug it
+# docker exec -it <container_id> bash
