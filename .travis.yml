@@ -27,8 +27,6 @@ install:
 
 script:
   - pwd
-  - cd ./client
-  - pwd
   - npm run build
   # Next steps are handeled in the Dockerfile
   # DockerFile is doing the copying to html directory
