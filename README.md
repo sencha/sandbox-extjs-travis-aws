@@ -10,15 +10,26 @@ This configuration includes:
 - AWS Elastic Beanstalk
 - Ext JS
 
+This architecture configuration includes:
+- ./client - Ext JS app source - http://localhost:1962 (Endpoint for debugging only)
+- ./server - Server app source - http://localhost:3000
+
+This Elastic Beanstalk configuration includes:
+- Docker - http://localhost:3000
+
+
 ## Set up VCS
 Configure a VCS to store your code. 
 
+Once the project is configured it will be your project root. 
+Change to the root of your project
 ```
 cd ~/git/sandbox-extjs-travis-aws
 ```
 
-## Create a project
-Create an Ext JS npm project.
+
+## Create an Ext JS Application
+Create an Ext JS npm Ext JS application project.
 
 ### Sign in to npm Repo
 
@@ -56,8 +67,9 @@ Rename `./modern-app` to `client`.
 mv modern-app client
 ```
 
+## Configure Elastic Beanstak App & Enviornment
 
-## Configure AWS & EB CLI
+### Configure AWS & EB CLI
 Install and configure the AWS and EB CLI.
 
 * [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
@@ -69,9 +81,7 @@ At the root of the project run this. In this config, don't run it in the app fol
 aws configure
 ```
 
-
-
-## Create Elastic Beanstalk Application
+### Create Elastic Beanstalk Application
 Set up the Elastic Beanstalk application.
 
 ```
@@ -86,8 +96,7 @@ eb init
 
 This will create the file [./.elasticbeanstalk/config.yml](./.elasticbeanstalk/config.yml).
 
-
-## Create Elastic Beanstalk Environment.
+### Create Elastic Beanstalk Environment.
 Set up an Elastic environment for your application. 
 
 ```
@@ -95,40 +104,36 @@ eb create sandbox-staging
 ```
 
 
-## Configure the Docker
+
+## Configure Client / Server Application
+
+### Configure the Docker
 Create a [./Dockerfile](./Dockerfile).
 
 * Copy the [./Dockerfile](./Dockerfile) to your application. It sets up a basic linux enviroment. 
 
 Note: I won't be covering how to build and save the image on AWS. 
 
-
-
-## Configure Docker Run Manifest
+### Configure Docker Run Manifest
 Create a [./Dockerrun.aws.json](./Dockerrun.aws.json) docker maniftest. 
 
 * Copy the [./Dockerfile](./Dockerfile) to your application.
 
 Note: I won't be covering how to build using a saved image in this round. I'll use a basic ubuntu config. 
 
-
-
-## Configure package.json
+### Configure package.json
 Add express and change how the server is started. 
 
 * Copy the [./package.json](./package.json) to your project. 
 * This project contains express. 
 * This project contains a start script to start web express serving. 
 
-
-
-## Configure TravisCI
+### Configure TravisCI
 
 * Copy the [.travis.yml](./travis.yml) to your project. 
 * TODO - encrypt aws token/pass.
 
-
-## Debug Proxy Config
+### Debug Proxy Config
 In order to use the web pack dev server and server together, you'll need to set up a proxy in the web pack dev server. 
 This allows you to run the web pack dev server with all the magic with a separate server instance.
 
