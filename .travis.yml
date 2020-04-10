@@ -30,10 +30,24 @@ before_install:
 
 install: 
   - npm install
+  - cd client
+  - npm install
 
 script:
-  - pwd
+  - cd client
+  - npm run build
+  - cp -R ./client/build/production/ModernApp/* ./server/html
 
+# deploy:
+#   provider: elasticbeanstalk
+#   access_key_id:
+#     secure: "Encrypted <access-key-id>="
+#   secret_access_key:
+#     secure: "Encypted <secret-access-key>="
+#   region: "us-east-1"
+#   app: "sandbox-extjs-travis-aws"
+#   env: "sandbox-staging"
+#   bucket_name: "the-target-S3-bucket"
 
 # Run CLI in this repo
 # Delete Cache

@@ -85,8 +85,8 @@ eb init
 This will create the file [./.elasticbeanstalk/config.yml](./.elasticbeanstalk/config.yml).
 
 
-## Create Elastic Beanstalk Enviorment.
-Set up an Elastic enviorment for your application. 
+## Create Elastic Beanstalk Environment.
+Set up an Elastic environment for your application. 
 
 ```
 eb create sandbox-staging
@@ -123,7 +123,44 @@ Add express and change how the server is started.
 ## Configure TravisCI
 
 * Copy the [.travis.yml](./travis.yml) to your project. 
+* TODO - encrypt aws token/pass.
 
+
+## Debug Proxy Config
+In order to use the web pack dev server and server together, you'll need to set up a proxy in the web pack dev server. 
+This allows you to run the web pack dev server with all the magic with a separate server instance.
+
+Add this proxy to your webpack `devServer` configuration. 
+```
+// http://localhost:1962/api
+proxy: {
+  "/api": "http://localhost:3000"
+}
+```
+
+For `devServer` example:
+```
+devServer: {
+  watchOptions: {
+    ignored: ignoreFolders
+  },
+  contentBase: [path.resolve(__dirname, outputFolder)],
+  watchContentBase: !isProd,
+  liveReload: !isProd,
+  historyApiFallback: !isProd,
+  host: host,
+  port: port,
+  disableHostCheck: isProd,
+  compress: isProd,
+  inline: !isProd,
+  stats: stats,
+
+  // http://localhost:1962/api
+  proxy: {
+    "/api": "http://localhost:3000"
+  }
+}
+```
 
 
 ## Debugging
@@ -134,4 +171,10 @@ Debug in VSCode.
 
 - The Client launcher launches web pack dev server which watches for changes. On a change it builds. 
 - The Client launcher has a proxy from http://localhost:1962/api to http://localhost:3000/api.
- 
+
+
+## Deploy
+.travis.yml is set up to deploy to Elastic Beanstalk.
+
+* Change the username and password in [./travis.yml](./.travis.yml).
+
