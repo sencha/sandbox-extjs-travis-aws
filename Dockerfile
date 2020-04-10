@@ -9,14 +9,10 @@ RUN apt-get install -y build-essential curl
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 RUN apt-get install -y nodejs
 
+WORKDIR /app/current
 
-WORKDIR /var/app/current
-
-COPY package.json /var/app/current
-
-RUN npm install
-
-COPY . /var/app/current
+COPY . /app/current
+COPY ./client/build/production/ModernApp/ /app/current/server/html/
 
 CMD ["node", "./server/express.js"]
 

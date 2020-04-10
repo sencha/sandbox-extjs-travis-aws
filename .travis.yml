@@ -36,7 +36,8 @@ install:
 script:
   - cd client
   - npm run build
-  - cp -R ./client/build/production/ModernApp/* ./server/html
+  # DockerFile is doing the copying to html directory
+  #- cp -R ./client/build/production/ModernApp/* ./server/html
 
 # deploy:
 #   provider: elasticbeanstalk
