@@ -3,34 +3,34 @@ const ExtWebpackPlugin = require('@sencha/ext-webpack-plugin');
 const portfinder = require('portfinder');
 
 module.exports = async function (env) {
-  
+
   // Utility function for retrieving environment variables
-  function get(it, val) {if(env == undefined) {return val} else if(env[it] == undefined) {return val} else {return env[it]}}
+  function get(it, val) { if (env == undefined) { return val } else if (env[it] == undefined) { return val } else { return env[it] } }
 
   const rules = [
     { test: /.(js)$/, use: ['babel-loader'] }
-  ]
-  const resolve = {}
-  const host = '0.0.0.0'
-  const stats = 'none'
+  ];
+  const resolve = {};
+  const host = '0.0.0.0';
+  const stats = 'none';
 
-  var framework     = get('framework',     'extjs')
-  var contextFolder = get('contextFolder', './')
-  var entryFile     = get('entryFile',     './index.js')
-  var outputFolder  = get('outputFolder',  './')
-  var toolkit       = get('toolkit',       'modern')
-  var theme         = get('theme',         'theme-material')
-  var packages      = get('packages',      ['treegrid'])
-  var script        = get('script',        '')
-  var emit          = get('emit',          'yes')
-  var profile       = get('profile',       '')
-  var environment   = get('environment',   'development')
-  var treeshake     = get('treeshake',     'no')
-  var browser       = get('browser',       'yes')
-  var watch         = get('watch',         'yes')
-  var verbose       = get('verbose',       'no')
-  var isProd        = false;
-  
+  var framework = get('framework', 'extjs');
+  var contextFolder = get('contextFolder', './');
+  var entryFile = get('entryFile', './index.js');
+  var outputFolder = get('outputFolder', './');
+  var toolkit = get('toolkit', 'modern');
+  var theme = get('theme', 'theme-material');
+  var packages = get('packages', ['treegrid']);
+  var script = get('script', '');
+  var emit = get('emit', 'yes');
+  var profile = get('profile', '');
+  var environment = get('environment', 'development');
+  var treeshake = get('treeshake', 'no');
+  var browser = get('browser', 'yes');
+  var watch = get('watch', 'yes');
+  var verbose = get('verbose', 'no');
+  var isProd = false;
+
   if (environment === 'production') { isProd = true; }
 
   // The build.xml Sencha Cmd plugin uses a regex to locate the webpack bundle for use in app.json to be included in 
@@ -39,9 +39,10 @@ module.exports = async function (env) {
   const bundleFormat = isProd ? "[name].[hash].js" : "[name].js";
 
   // Using Live Reload with a root context directory, necessary for Sencha Cmd, requires these folders be ignored 
-  const ignoreFolders = [path.resolve(__dirname, './generatedFiles'), path.resolve(__dirname, './build')]
+  const ignoreFolders = [path.resolve(__dirname, './generatedFiles'), path.resolve(__dirname, './build')];
 
   portfinder.basePort = (env && env.port) || 1962
+
   return portfinder.getPortPromise().then(port => {
     const plugins = [
       new ExtWebpackPlugin({
@@ -52,7 +53,7 @@ module.exports = async function (env) {
         script: script,
         emit: emit,
         port: port,
-        profile: profile, 
+        profile: profile,
         environment: environment,
         treeshake: treeshake,
         browser: browser,
@@ -78,6 +79,7 @@ module.exports = async function (env) {
       stats: 'none',
       optimization: { noEmitOnErrors: true },
       node: false,
+      
       devServer: {
         watchOptions: {
           ignored: ignoreFolders
@@ -91,7 +93,12 @@ module.exports = async function (env) {
         disableHostCheck: isProd,
         compress: isProd,
         inline: !isProd,
-        stats: stats
+        stats: stats,
+
+        // http://localhost:1962/api
+        proxy: {
+          "/api": "http://localhost:3000"
+        }
       }
     }
   })

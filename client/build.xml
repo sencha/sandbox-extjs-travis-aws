@@ -6,6 +6,7 @@
     <exclude name="node_modules/" />
     <exclude name="app/" />
     <exclude name="build/" />
+    <exclude name="dist/" />
     <exclude name=".sencha/" />
     <exclude name="packages/" />
     <exclude name="generatedFiles/" />

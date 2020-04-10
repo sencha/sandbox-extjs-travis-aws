@@ -7,16 +7,18 @@ const path = require('path');
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
-const distDir = path.join(__dirname, '..', 'client', 'dist');
-console.log('distDir', distDir);
+const htmlDir = path.join(__dirname, 'html');
+console.log('htmlDir', htmlDir);
 
 // App
 const app = express();
-app.use('/', express.static(distDir));
+// move static content here
+app.use('/', express.static(htmlDir));
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World');
-// });
+// debug dir: http://localhost:1962/api
+app.get('/api', (req, res) => {
+  res.send('/API works... debugging...');
+});
 
 app.listen(PORT, HOST);
 
