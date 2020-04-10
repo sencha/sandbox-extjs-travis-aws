@@ -27,7 +27,7 @@ This Client application includes:
 Configure a VCS to store your code. 
 
 Once the project is configured it will be your project root. 
-Change to the root of your project
+Change to the root of your project.
 ```
 cd ~/git/sandbox-extjs-travis-aws
 ```
@@ -125,6 +125,19 @@ Create a [./Dockerrun.aws.json](./Dockerrun.aws.json) docker maniftest.
 * Copy the [./Dockerfile](./Dockerfile) to your application.
 
 Note: I won't be covering how to build using a saved image in this round. I'll use a basic ubuntu config. 
+
+#### Debug Docker Container
+Run `sh ./test-docker-build.sh` to test out the docker build. Then go to http://localhost:8282 to test the configuration. 
+
+| docker cmd | purpose |
+| docker ps | List the docker containers running |
+| docker stop [container-id] | Stop a container |
+| docker exec -it [container-id] /bin/bash | Bash into the container |
+| docker build -t my-app:1.2 . | Build the docker container with version |
+| docker run -d -p 8282:3000 my-app:1.2 | Run the docker built container with version on http://localhost:8282 and proxy to port 3000 |
+
+
+Note: When building after a change, increment the docker version in [./test-docker-build.sh](./test-docker-build.sh) file. 
 
 ### Configure package.json
 Add express and change how the server is started. 

@@ -1,14 +1,15 @@
   
 #!/bin/sh
-# build and run docker locally
+# Build and run docker locally
+# After Dockerfile modification, change the version!
 
-# build docker
+# Build docker
 docker build -t my-app:1.2 .
 
-# run docker # 8282 for testing
+# Run docker # 8282 for testing
 docker run -d -p 8282:3000 my-app:1.2
 
-# list dockers
+# List dockers
 docker ps
 
 
