@@ -15,7 +15,7 @@ This architecture configuration includes:
 - ./server - Server app source - http://localhost:3000
 
 This Elastic Beanstalk configuration includes:
-- Docker - http://localhost:3000
+- Multi-Docker container config - http://localhost:3000
 
 This Client application includes:
 - Visual Studio Code launchers for client and server
