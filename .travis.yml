@@ -3,7 +3,7 @@ node_js:
  - "lts/*"
 
 cache:
-  npm: true
+  npm: false
 
 before_install:
   # NPM Login - commercial
@@ -12,6 +12,8 @@ before_install:
   # NPM Login - early-adopter
   - npm config set @sencha:registry https://sencha.myget.org/F/early-adopter/npm/
   - npm config set //sencha.myget.org/F/early-adopter/npm/:_authToken=$SENCHA_NPM_TOKEN_EARLYADOPTER
+  # For early adopter clean the cache 
+  - npm cache clean --force
 
 install: 
   - npm install
