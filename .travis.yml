@@ -13,8 +13,8 @@ before_install:
   - npm config set @sencha:registry https://sencha.myget.org/F/early-adopter/npm/
   - npm config set //sencha.myget.org/F/early-adopter/npm/:_authToken=$SENCHA_NPM_TOKEN_EARLYADOPTER
   # For early adopter clean the cache 
-  - npm cache clean --force
-  - npm cache verify
+  #- npm cache clean --force
+  #- npm cache verify
 
 install: 
   - npm install
