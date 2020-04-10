@@ -190,13 +190,16 @@ devServer: {
 
 
 ## Debugging
-Debug in VSCode. 
+Debug using launchers in Visual Studio Code. 
 
 1. Start the `Server` launcher. http://localhost:3000/api
 2. Start the `Client` launcher. http://localhost:1962/
+3. Start the `Chrome` launcher. This opens chrome and connects it to Visual Studio Code.
 
 - The Client launcher launches web pack dev server which watches for changes. On a change it builds. 
 - The Client launcher has a proxy from http://localhost:1962/api to http://localhost:3000/api.
+
+See the launchers here [./vscode/launch.json](./vscode/launch.json).
 
 
 ## Deploy
