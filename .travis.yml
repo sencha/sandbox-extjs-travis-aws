@@ -43,7 +43,13 @@ script:
 #   env: "sandbox-staging"
 #   bucket_name: "the-target-S3-bucket"
 
-# Run CLI in this repo
-# Delete Cache
-# travis cache
-# travis cache --delete
+
+# Notes:
+# https://travis-ci.com/github/sencha/sandbox-extjs-travis-aws/settings - contains private export variables
+
+# Run Travis CLI in this repo
+# gem install travis
+
+# Delete Travis Cache
+# travis cache --com
+# travis cache --com --delete
