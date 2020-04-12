@@ -4,6 +4,6 @@ webapp:
   - /app/server/express.js
   image: node:latest
   ports:
-  - 8282:3000
+  - 80:3000
   volumes:
   - /Users/branflake2267/git/sandbox-extjs-travis-aws/:/app:ro

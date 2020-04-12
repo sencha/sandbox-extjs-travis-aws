@@ -111,6 +111,11 @@ eb create sandbox-staging
 ## Docker Config
 The `Dockerrun.aws.json` will configure the docker container when deployed. 
 
+### Debugging the Docker Config
+
+* Run `eb local run`
+* Open http://0.0.0.0:3000
+* 
 
 ## Configure Client / Server Application
 

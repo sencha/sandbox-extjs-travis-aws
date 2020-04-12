@@ -3,6 +3,7 @@ dist
 generatedFiles
 cordova
 node_modules
+.elasticbeanstalk/logs
 
 # Elastic Beanstalk Files
 #.elasticbeanstalk/*
