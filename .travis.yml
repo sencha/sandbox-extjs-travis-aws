@@ -32,6 +32,9 @@ script:
   # DockerFile is doing the copying to html directory
   #- cp -R ./client/build/production/ModernApp/* ./server/html
 
+  # Deploy all the files
+  - git add -A
+
 deploy:
   provider: elasticbeanstalk
   access_key_id:
