@@ -33,7 +33,7 @@ before_deploy:
   - pwd
   - cd ..
   - pwd
-  # Copy the app into the server static html  q directory
+  # Copy the web app into the server static html directory
   - cp -R ./client/build/production/ModernApp/* ./server/html
   # Get rid of the files that aren't needed in the deployment
   - rm -rf ./client
