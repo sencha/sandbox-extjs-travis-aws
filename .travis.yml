@@ -1,3 +1,8 @@
+env:
+  global:
+    - secure: ZB+Zr/PYtk1/zHUOIiJ0wbfWd3hFaDS3IGRishxWVxd98EhlZB8SyRl49nT4c9jcvEpR4lUAQghM4Xp3TBgBHR/KjxkUEYpjGHU3Luz2rqlisRjdFb9Pw4A+290ZmCzK3E286zZRsdrhzlktfWXBz1t9WCiEDn9zORK38NUPNYzHOh8s84S9IEVhLVTOSQSfB5ou3rQsFTX8nKapd4PAd8h6fuAoE1NwPuA0j33EUezgYpsMfQpO3LxJ5e1Aqx9WNhqyipVQV3bZV1jvkU9EC2PGAA2J0SFgeOrKGRz2VVzHEkwibM8GfGAmnzv1iF2wsPo0znVNitxsrMt72j6l4f923vf7SWeIcn1pwiIfgHgkA0MrL+0olmw4fuFNZSBrnuq6Fv79QyGSyaLqsXQ6YGjFB+luypNHhizUd9fvd4WAhVIDo/3JCsfmf5MaqBSMNeoEznb1Lk2RbDTkXdR6fgc4BYm9VF4alPMsnc/yWQul2vyYSx6+Ep6iY/QAZwokb0f0v5YWVIODHRWzp46kUrP7tUKDuSQEpCBjNoBRClxLb4SqCZfiyKeaizioBzALgFAG7YdG4p02RkSDi47D4dqPQRe0lQlBBUv/32sUU/4gqMHLOOF+MyaAeEjEF95V+9rKPzdmr5XUtx5dMX43jmt6cCLRljqPx/LnS4Zlf20=
+    - secure: "N3I++mvz8Sh5bhZTWRI4f5/Xfo+I0nk0wtN079kNEnkW5TNo058tJ/+LB3M/sCzKSoOHYARa7GD/S4bAChjQQO0HCulqjUCGEZW2vutDTW2jwV2saKp266tT4fS9V/0/GrnK/ZPWG9MEaUIjs1kaRwkgZCHUdk8/EtxnU4TLPJXluIv2K8tLiH5vhZLa854My27TFC5MB7vde9MEd/40KVz+hrj+23PLnHdFikaZzEjVykfKaUwyxGAGfdJMycs5L33LNefDFrkglTJ/DVR3tN4LO8osagNSxQtwut3DL0Ou09XgMC8UEAfA90HFgdVkfqlCgyvNwi6X0mz5FgdsV+PWifbyrRrfwWIkoOf85HBseMFp9o1Ui2K/cBQ9kV7iO6/kXxqJyy/nLwNbWU8YO6npaywqxNEX/1VE9njx1sfU38YqzpgCjJmU1AVpoCn0aUbVzjcnHBoRKPGE+1hP/xKfK7LwQW6uIxXf6AX8nd2z7unMinsc69wb+u2KniqOEvKmwU/9XZRiR4xNvsFF3MbAx+Q4o1AonuojPbmzWGgoK4Hqwz5i0PkWI5qq4TAiRH+wJVTDp4dRZtW1WJAjlK2FzIugJ+wuc9Hd2UllzP6WrLbkqZFukzWRCpakjET+IQnz+tbtPSB/jLxj6Fg1Ri3VYJN0o+j9o8u1rar/GTY="
+
 language: node_js
 node_js:
  - "lts/*"
@@ -32,16 +37,16 @@ script:
   # DockerFile is doing the copying to html directory
   #- cp -R ./client/build/production/ModernApp/* ./server/html
 
-# deploy:
-#   provider: elasticbeanstalk
-#   access_key_id:
-#     secure: "Encrypted <access-key-id>="
-#   secret_access_key:
-#     secure: "Encypted <secret-access-key>="
-#   region: "us-east-1"
-#   app: "sandbox-extjs-travis-aws"
-#   env: "sandbox-staging"
-#   bucket_name: "the-target-S3-bucket"
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: $AWS_ACCESS_KEY_ID
+  secret_access_key:
+    secure: $AWS_SECRET_ACCESS_KEY
+  region: "us-east-1"
+  app: "sandbox-extjs-travis-aws"
+  env: "sandbox-staging"
+  bucket_name: "sencha-deploy-from-travis-tmp"
 
 
 # Notes:
@@ -53,3 +58,10 @@ script:
 # Delete Travis Cache
 # travis cache --com
 # travis cache --com --delete
+
+# Encrypt Variables
+# gem install travis
+# travis login --pro --github-token replace_with_github_personal_token
+# cd to/this/repo
+# travis encrypt AWS_ACCESS_KEY_ID=xxx
+# travis encrypt AWS_SECRET_ACCESS_KEY=xxx
