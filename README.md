@@ -109,8 +109,7 @@ eb create sandbox-staging
 ```
 
 ## Docker Config
-
-
+The `Dockerrun.aws.json` will configure the docker container when deployed. 
 
 
 ## Configure Client / Server Application

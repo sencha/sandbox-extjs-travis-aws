@@ -30,10 +30,11 @@ script:
   - npm run build
   
 before_deploy:
-  - cp -R ./client/build/production/ModernApp/* ./server/html
   - pwd
   - cd ..
   - pwd
+  # Copy the app into the server static html directory
+  - cp -R ./client/build/production/ModernApp/* ./server/html
   - git add -f node_modules/
   - git add -f client/node_modules/
   - git add -A
