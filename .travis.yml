@@ -35,8 +35,10 @@ before_deploy:
   - pwd
   # Copy the app into the server static html  q directory
   - cp -R ./client/build/production/ModernApp/* ./server/html
+  # Get rid of the files that aren't needed in the deployment
+  - rm -rf ./client
+  # Add the server libraries
   - git add -f node_modules/
-  - git add -f client/node_modules/
   - git add -A
 
 deploy:
