@@ -33,6 +33,9 @@ script:
   #- cp -R ./client/build/production/ModernApp/* ./server/html
 
   # Deploy all the files
+  - pwd
+  - cd ..
+  - rm -rf .gitignore
   - git add -A
 
 deploy:
