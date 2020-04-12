@@ -29,15 +29,14 @@ script:
   - pwd
   - npm run build
   
-
 before_deploy:
+  - cp -R ./client/build/production/ModernApp/* ./server/html
   - pwd
   - cd ..
   - pwd
   - git add -f node_modules/
   - git add -f client/node_modules/
   - git add -A
-  - git status
 
 deploy:
   - provider: elasticbeanstalk
