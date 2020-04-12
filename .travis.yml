@@ -28,9 +28,7 @@ install:
 script:
   - pwd
   - npm run build
-  # Next steps are handeled in the Dockerfile
-  # DockerFile is doing the copying to html directory
-  #- cp -R ./client/build/production/ModernApp/* ./server/html
+  
 
 before_deploy:
   - pwd
