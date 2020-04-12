@@ -35,7 +35,7 @@ script:
   # Deploy all the files
   - pwd
   - cd ..
-  - rm -rf .gitignore
+  - echo "\n!node_modules" >> .gitignore
   - git add -A
 
 deploy:
