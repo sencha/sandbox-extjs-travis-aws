@@ -5,7 +5,7 @@ const path = require('path');
 
 // Constants
 const PORT = 3000;
-const HOST = 'localhost';
+const HOST = '0.0.0.0';
 
 const htmlDir = path.join(__dirname, 'html');
 console.log('htmlDir', htmlDir);
@@ -22,4 +22,4 @@ app.get('/api', (req, res) => {
 
 app.listen(PORT, HOST);
 
-console.log(`Express is running on: http://${HOST}:${PORT}`);
+console.log(`Express is running on http://${HOST}:${PORT}`);
