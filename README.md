@@ -124,7 +124,17 @@ Add express and change how the server is started.
 ### Configure TravisCI
 
 * Copy the [.travis.yml](./travis.yml) to your project. 
-* TODO - encrypt aws token/pass.
+
+#### Enctype TravisCI Variables
+Encrypt secure variables.
+
+* Run `gem install travis`
+* Run `travis login --pro --github-token replace_with_github_personal_token`
+* Run `cd to/the/repo`
+* Run `travis encrypt replace_with_your_key_id`
+* Run `travis encrypt replace_with_your_access_key`
+* Add the secure (secure: "xxx=") variables to your travis deploy config.
+
 
 ### Debug Proxy Config
 In order to use the web pack dev server and server together, you'll need to set up a proxy in the web pack dev server. 
@@ -173,11 +183,11 @@ Debug using launchers in Visual Studio Code. Start the Server, Client and Chrome
 - The Client launcher launches web pack dev server which watches for changes. On a change it builds. 
 - The Client launcher has a proxy from http://localhost:1962/api to http://localhost:3000/api.
 
-See the launchers here [./vscode/launch.json](./vscode/launch.json).
+See the launchers here [./.vscode/launch.json](./.vscode/launch.json).
 
 
 ## Deploy
-.travis.yml is set up to deploy to Elastic Beanstalk.
+`.travis.yml` is set up to deploy to Elastic Beanstalk.
 
 * Change the username and password in [./travis.yml](./.travis.yml).
 

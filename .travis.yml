@@ -33,7 +33,7 @@ before_deploy:
   - pwd
   - cd ..
   - pwd
-  # Copy the app into the server static html directory
+  # Copy the app into the server static html  q directory
   - cp -R ./client/build/production/ModernApp/* ./server/html
   - git add -f node_modules/
   - git add -f client/node_modules/
@@ -63,7 +63,7 @@ deploy:
 # travis cache --com
 # travis cache --com --delete
 
-# Encrypt Variables
+# Encrypt Secure Variables
 # gem install travis
 # travis login --pro --github-token replace_with_github_personal_token
 # cd to/this/repo

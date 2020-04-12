@@ -13,7 +13,7 @@
       "name": "web-app",
       "image": "node:latest",
       "essential": true,
-      "memory": 1024,
+      "memory": 500,
 
       "command": [
         "node",
