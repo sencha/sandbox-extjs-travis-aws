@@ -164,7 +164,7 @@ devServer: {
 
 
 ## Debugging
-Debug using launchers in Visual Studio Code. 
+Debug using launchers in Visual Studio Code. Start the Server, Client and Chrome launcher to debug locally. 
 
 1. Start the `Server` launcher. http://localhost:3000/api
 2. Start the `Client` launcher. http://localhost:1962/
@@ -181,3 +181,6 @@ See the launchers here [./vscode/launch.json](./vscode/launch.json).
 
 * Change the username and password in [./travis.yml](./.travis.yml).
 
+
+## AWS Endpoint
+The application deploys to http://sandbox-staging.eba-te2gi7ki.us-east-1.elasticbeanstalk.com/.
