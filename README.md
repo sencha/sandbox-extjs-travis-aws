@@ -112,10 +112,11 @@ eb create sandbox-staging
 The `Dockerrun.aws.json` will configure the docker container when deployed. 
 
 ### Debugging the Docker Config
+Run the Elastic Beanstalk locally. With one caveat, web contents are not copied to the server folder, until deployment.
 
 * Run `eb local run`
 * Open http://0.0.0.0:3000
-* 
+
 
 ## Configure Client / Server Application
 
