@@ -195,7 +195,7 @@ See the launchers here [./.vscode/launch.json](./.vscode/launch.json).
 ## Deploy
 `.travis.yml` is set up to deploy to Elastic Beanstalk.
 
-* Change the username and password in [./travis.yml](./.travis.yml).
+* Change the username and password in [./.travis.yml](./.travis.yml).
 
 
 ## AWS Endpoint
